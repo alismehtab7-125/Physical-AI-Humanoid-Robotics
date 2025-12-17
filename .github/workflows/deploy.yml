@@ -23,8 +23,6 @@ jobs:
         with:
           node-version: 18
           # Yahan hum GitHub ko bata rahe hain ke lock file kahan hai
-          cache: 'npm'
-          cache-dependency-path: 'my-website/package-lock.json'
 
       - name: Install dependencies
         run: npm install
