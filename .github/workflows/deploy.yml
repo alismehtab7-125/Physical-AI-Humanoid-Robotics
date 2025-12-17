@@ -13,6 +13,10 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: my-website # Is se GitHub khud hi folder ke andar chala jayega
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -22,15 +26,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          # Yahan hum GitHub ko bata rahe hain ke lock file kahan hai
 
       - name: Install dependencies
         run: npm install
-        working-directory: my-website
 
       - name: Build website
         run: npm run build
-        working-directory: my-website
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
